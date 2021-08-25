@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js-Input サンプル</title>
+
+    <!-- js-input クラス本体 -->
+    <script type="text/javascript" charset="utf-8" src="js-input.js"></script>
+
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron">
+          <h1>Js-Inputのサンプル</h1>
+          <p>このサンプルプログラムは、console.log()に出力するので、F12キーなどを押して開発者モードにしてください。</p>
+        </div>
+    </div>
+
+    本サンプルプログラムでのキーボードの操作<br>
+    <table class="table table-striped">
+        <tr><td>Aキー</td><td>getClick</td><td>クリック判定</td></tr>
+        <tr><td>Aキー</td><td>getLongPress</td><td>時間が経過したら判定</td></tr>
+        <tr><td>Aキー</td><td>getRepeat</td><td>リピート数で判定</td></tr>
+        <tr><td>左方向キー</td><td>getLoopPress</td><td>長押し(繰り返し)</td></tr>
+        <tr><td>右方向キー</td><td>getLoopPress</td><td>長押し(繰り返し)</td></tr>
+    </table>
+    <a href="keycode.html">Js-Inputのキーコード表</a>
+
+<pre>
+
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        window.addEventListener(&#039;load&#039;, function() {
+          // 初期化
+          input = new JsInput();
+          // 必要なキーを登録する
+          input.add(input.vk_a);
+          input.add(input.vk_left);
+          input.add(input.vk_right);
+        
+          // イベントを追加：キーダウン
+          document.addEventListener(&quot;keydown&quot;, event =&gt; {
+              input.onDown(event.keyCode);
+          });
+          // イベントを追加：キーアップ
+          document.addEventListener(&quot;keyup&quot;, event =&gt; {
+              input.onUp(event.keyCode);
+          });
+          // 一定時間ごとにmyUpdateの処理をする
+          setInterval(myUpdate, 50);
+        });
+        
+        function myUpdate(){
+          input.exec(); // 必ず呼び出すこと
+          input.show(); // 状態を確認したいとき(デバッグ用)
+          //
+          // キーの判定を行う
+          //
+          
+          // クリックの判定
+          if( input.getClick(input.vk_a)){
+            console.log(&quot;A 1回だけ処理&quot;);
+          }
+        
+          // 時間が経過したら判定する 1000ms
+          if( input.getLongPress(input.vk_a,1000)){
+            console.log(&quot;A 1秒押しっぱなし&quot;);
+          }
+        
+          // リピート数で判定
+          if(input.getRepeat(input.vk_a)==10){
+            console.log(&quot;A リピートが10回押された&quot;);
+          }
+        
+          // 長押しで 一定時間経過したら(繰り返す)
+          if(input.getLoopPress(input.vk_left,500)){
+            console.log(&quot;left 500msで繰り返し&quot;);
+          }
+          if(input.getLoopPress(input.vk_right,500)){
+            console.log(&quot;right 500msで繰り返し&quot;);
+          }
+        }        
+    &lt;/script&gt;
+
+</pre>
+
+
+
+
+
+    <script type="text/javascript">
+        window.addEventListener('load', function() {
+          // 初期化
+          input = new JsInput();
+          // 必要なキーを登録する
+          input.add(input.vk_a);
+          input.add(input.vk_left);
+          input.add(input.vk_right);
+        
+          // イベントを追加：キーダウン
+          document.addEventListener("keydown", event => {
+              input.onDown(event.keyCode);
+          });
+          // イベントを追加：キーアップ
+          document.addEventListener("keyup", event => {
+              input.onUp(event.keyCode);
+          });
+          // 一定時間ごとにmyUpdateの処理をする
+          setInterval(myUpdate, 50);
+        });
+        
+        function myUpdate(){
+          input.exec(); // 必ず呼び出すこと
+          input.show(); // 状態を確認したいとき(デバッグ用)
+          //
+          // キーの判定を行う
+          //
+          
+          // クリックの判定
+          if( input.getClick(input.vk_a)){
+            console.log("A 1回だけ処理");
+          }
+        
+          // 時間が経過したら判定する 1000ms
+          if( input.getLongPress(input.vk_a,1000)){
+            console.log("A 1秒押しっぱなし");
+          }
+        
+          // リピート数で判定
+          if(input.getRepeat(input.vk_a)==10){
+            console.log("A リピートが10回押された");
+          }
+        
+          // 長押しで 一定時間経過したら(繰り返す)
+          if(input.getLoopPress(input.vk_left,500)){
+            console.log("left 500msで繰り返し");
+          }
+          if(input.getLoopPress(input.vk_right,500)){
+            console.log("right 500msで繰り返し");
+          }
+        }        
+    </script>
+
+</body>
+</html>
