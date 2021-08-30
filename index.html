@@ -40,13 +40,13 @@
 <tr>
 	<td>exec()</td>
 	<td>メインループで毎回実行するもの<br>
-		setInterval内のfnctionなどで定義する(メインループ)
+		setInterval内のfunctionなどで定義する(メインループ)
 	</td>
 </tr>
 <tr>
 	<td>show()</td>
 	<td>デバッグ用のコンソール表示<br>
-		setInterval内のfnctionなどで定義する(メインループ)
+		setInterval内のfunctionなどで定義する(メインループ)
 	</td>
 </tr>
 
@@ -79,7 +79,7 @@
 	<td>getClick(vKey)</td>
 	<td>click判定(一度だけ判定)<br>
 		vKey 仮想キー名  <a href="keycode.html"> (Js-Inputのキーコード表を参照)</a><br>
-		setInterval内のfnctionなどで定義する(メインループ)<br>
+		setInterval内のfunctionなどで定義する(メインループ)<br>
     if( input.getClick(input.vk_a)) console.log("A 1回だけ処理");
 	</td>
 </tr>
@@ -89,7 +89,7 @@
 	<td>getRepeat(vKey)</td>
 	<td>リピート数を返す<br>
 		vKey 仮想キー名  <a href="keycode.html"> (Js-Inputのキーコード表を参照)</a><br>
-		setInterval内のfnctionなどで定義する(メインループ)<br>
+		setInterval内のfunctionなどで定義する(メインループ)<br>
     if(input.getRepeat(input.vk_a)==10) console.log("A リピートが10回押された");
 	</td>
 </tr>
@@ -100,7 +100,7 @@
 	<td>押しっぱなし判定(一度だけ判定)  <br>
 		vKey 仮想キー名  <a href="keycode.html"> (Js-Inputのキーコード表を参照)</a><br>
 		value  時間(ms)<br>
-		setInterval内のfnctionなどで定義する(メインループ)<br>
+		setInterval内のfunctionなどで定義する(メインループ)<br>
     if( input.getLongPress(input.vk_a,1000)) console.log("A 1秒押しっぱなし");
 	</td>
 </tr>
@@ -111,7 +111,7 @@
 	<td>押しっぱなし判定(一定時間を繰り返す)<br>
 		vKey 仮想キー名  <a href="keycode.html"> (Js-Inputのキーコード表を参照)</a><br>
 		value 時間(ms)<br>
-		setInterval内のfnctionなどで定義する(メインループ)<br>
+		setInterval内のfunctionなどで定義する(メインループ)<br>
 		if(input.getLoopPress(input.vk_left,500)) console.log("left 500msで繰り返し");
 	</td>
 </tr>
