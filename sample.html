@@ -41,7 +41,7 @@
           // 必要なキーを登録する
           input.add(input.vk_a);
           input.add(input.vk_left);
-          input.add(input.vk_right);
+          input.add(input.vk_space);
         
           // イベントを追加：キーダウン
           document.addEventListener(&quot;keydown&quot;, event =&gt; {
@@ -79,12 +79,15 @@
         
           // 長押しで 一定時間経過したら(繰り返す)
           if(input.getLoopPress(input.vk_left,500)){
-            console.log(&quot;left 500msで繰り返し&quot;);
+            console.log(&quot;left 500msで繰り返し 長押ししたら判定&quot;);
           }
-          if(input.getLoopPress(input.vk_right,500)){
-            console.log(&quot;right 500msで繰り返し&quot;);
+
+          // 押しっぱなし判定(最初にクリック判定、長押ししたら判定)
+          if(input.getLoopPress(input.vk_space,500)){
+            console.log(&quot;space 500msで繰り返し クリック判定と長押ししたら繰り返し判定&quot;);
           }
-        }        
+
+        }
     &lt;/script&gt;
 
 </pre>
@@ -141,7 +144,7 @@
             console.log("left 500msで繰り返し 長押ししたら判定");
           }
 					
-
+				  // 押しっぱなし判定(最初にクリック判定、長押ししたら判定)
           if(input.getPress(input.vk_space,500)){
             console.log("space 500msで繰り返し クリック判定と長押ししたら繰り返し判定");
           }
