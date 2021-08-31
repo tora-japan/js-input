@@ -26,7 +26,9 @@
         <tr><td>Aキー</td><td>getLongPress</td><td>時間が経過したら判定</td></tr>
         <tr><td>Aキー</td><td>getRepeat</td><td>リピート数で判定</td></tr>
         <tr><td>左方向キー</td><td>getLoopPress</td><td>長押し(繰り返し)</td></tr>
-        <tr><td>右方向キー</td><td>getLoopPress</td><td>長押し(繰り返し)</td></tr>
+        <tr><td>スペースキー</td><td>getPress</td><td>長押し(クリック、繰り返し)</td></tr>
+
+
     </table>
     <a href="keycode.html">Js-Inputのキーコード表</a>
 
@@ -98,7 +100,7 @@
           // 必要なキーを登録する
           input.add(input.vk_a);
           input.add(input.vk_left);
-          input.add(input.vk_right);
+          input.add(input.vk_space);
         
           // イベントを追加：キーダウン
           document.addEventListener("keydown", event => {
@@ -136,11 +138,14 @@
         
           // 長押しで 一定時間経過したら(繰り返す)
           if(input.getLoopPress(input.vk_left,500)){
-            console.log("left 500msで繰り返し");
+            console.log("left 500msで繰り返し 長押ししたら判定");
           }
-          if(input.getLoopPress(input.vk_right,500)){
-            console.log("right 500msで繰り返し");
+					
+
+          if(input.getPress(input.vk_space,500)){
+            console.log("space 500msで繰り返し クリック判定と長押ししたら繰り返し判定");
           }
+
         }        
     </script>
 
