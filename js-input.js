@@ -1,8 +1,14 @@
-﻿//-----------------------------------------------------------------------------
-//
-// キー入力用クラス
-//
-//-----------------------------------------------------------------------------
+﻿/*
+ * js-input.js
+ *
+ * Copyright (c) 2021 tora-japan (s.noda)
+ *
+ * Released under the MIT license.
+ * see https://opensource.org/licenses/MIT
+ *
+ * https://github.com/tora-japan/js-input
+ *
+ */
 
 // キーコード、名称、コード確認の参考サイト
 // https://web-designer.cman.jp/javascript_ref/keyboard/keycode/
@@ -58,10 +64,15 @@ function myUpdate(){
   if(input.getLoopPress(input.vk_left,500)){
     console.log("left 500msで繰り返し");
   }
+  // 押しっぱなし判定(長押ししたら判定する)
   if(input.getLoopPress(input.vk_right,500)){
-    console.log("right 500msで繰り返し");
+    console.log("right 500msで繰り返し 長押ししたら判定");
   }
-}        
+  // 押しっぱなし判定(最初にクリック判定、長押ししたら判定)
+  if(input.getPress(input.vk_b,500)){
+    console.log("b 押しっぱなし判定(最初にクリック判定、長押ししたら判定) 500msで繰り返し");
+  }
+}
 </script>
 */
 
@@ -307,7 +318,7 @@ class JsInput
     }
     return 0;
   }
-  // 押しっぱなし判定(一定時間を繰り返す)
+  // 押しっぱなし判定(一定時間を繰り返し、 長押ししたら判定)
   getLoopPress(vKey,value)
   {
     if(this.down[vKey])
@@ -320,5 +331,12 @@ class JsInput
     }
     return 0;
   }
+  // 押しっぱなし判定(クリック判定をする, 長押ししたら判定)
+  getPress(vKey,value)
+  {
+    if(this.getClick(vKey)) return 1;
+    if(this.getLoopPress(vKey,value)) return 1;
+  }
+
 };
 

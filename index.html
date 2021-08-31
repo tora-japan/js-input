@@ -112,9 +112,22 @@
 		vKey 仮想キー名  <a href="keycode.html"> (Js-Inputのキーコード表を参照)</a><br>
 		value 時間(ms)<br>
 		setInterval内のfunctionなどで定義する(メインループ)<br>
-		if(input.getLoopPress(input.vk_left,500)) console.log("left 500msで繰り返し");
+		if(input.getLoopPress(input.vk_left,500)) console.log("left 500msで繰り返し 長押ししたら判定");
 	</td>
 </tr>
+
+<tr>
+	<td>getPress(vKey,value)	</td>
+	<td>押しっぱなし判定(クリック判定をする, 長押ししたら判定)<br>
+		vKey 仮想キー名  <a href="keycode.html"> (Js-Inputのキーコード表を参照)</a><br>
+		value 時間(ms)<br>
+		setInterval内のfunctionなどで定義する(メインループ)<br>
+		if(input.getPress(input.vk_left,500)) console.log("left クリック判定と500msで繰り返し");
+	</td>
+</tr>
+
+
+
 </table>
 
 

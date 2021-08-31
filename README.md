@@ -32,4 +32,6 @@ js-input.js がクラス本体です
 | getClick(vKey)           | click判定(一度だけ判定) <br />vKey 仮想キー名 <br />setInterval内のfnctionなどで定義する(メインループ) <br />if( input.getClick(input.vk_a)) console.log("A 1回だけ処理"); |
 | getRepeat(vKey)          | リピート数を返す<br /> vKey 仮想キー名 <br />setInterval内のfunctionなどで定義する(メインループ) <br />if(input.getRepeat(input.vk_a)==10) console.log("A リピートが10回押された"); |
 | getLongPress(vKey,value) | 押しっぱなし判定(一度だけ判定) <br />vKey 仮想キー名 <br />value 時間(ms) setInterval内のfunctionなどで定義する(メインループ) <br />if( input.getLongPress(input.vk_a,1000)) console.log("A 1秒押しっぱなし"); |
-| getLoopPress(vKey,value) | 押しっぱなし判定(一定時間を繰り返す)<br />vKey 仮想キー名<br />value 時間(ms) <br />setInterval内のfunctionなどで定義する(メインループ) <br />if(input.getLoopPress(input.vk_left,500)) console.log("left 500msで繰り返し"); |
+| getLoopPress(vKey,value) | 押しっぱなし判定(一定時間を繰り返す)<br />vKey 仮想キー名<br />value 時間(ms) <br />setInterval内のfunctionなどで定義する(メインループ) <br />if(input.getLoopPress(input.vk_left,500)) console.log("left 500msで繰り返し 長押ししたら判定"); |
+| getPress(vKey,value) | 押しっぱなし判定(クリック判定と一定時間を繰り返す)<br />vKey 仮想キー名<br />value 時間(ms) <br />setInterval内のfunctionなどで定義する(メインループ) <br />if(input.getPress(input.vk_left,500)) console.log("left クリック判定と500msで繰り返し"); |
+
